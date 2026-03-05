@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ขอโทษนะเหมียว 🐱🥺</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e0f7fa, #ffebee);
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      text-align: center;
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(173, 216, 230, 0.3);
+      width: 100%;
+      max-width: 380px;
+      animation: gentleFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes gentleFloat {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin: 0 0 10px;
+      color: #ff80ab;
+    }
+
+    .sorry {
+      font-size: 1.8rem;
+      margin: 10px 0 20px;
+      color: #f06292;
+      font-weight: bold;
+    }
+
+    .reason {
+      font-size: 1.15rem;
+      color: #555;
+      margin: 0 0 25px;
+      line-height: 1.6;
+      min-height: 120px;
+    }
+
+    .cat {
+      font-size: 5rem;
+      margin: 15px 0;
+    }
+
+    .btn {
+      padding: 14px 40px;
+      font-size: 1.3rem;
+      background: #ff80ab;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #f06292;
+      transition: all 0.2s;
+      margin: 20px 0 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 9px 0 #f06292;
+    }
+
+    .btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #f06292;
+    }
+
+    .small-text {
+      font-size: 0.95rem;
+      color: #888;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 400px) {
+      h1 { font-size: 2.8rem; }
+      .sorry { font-size: 1.6rem; }
+      .reason { font-size: 1.05rem; min-height: 100px; }
+      .cat { font-size: 4rem; }
+      .btn { padding: 12px 35px; font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="cat">🐱🥺</div>
+    <h1>ขอโทษนะเหมียว</h1>
+    <div class="sorry">ผิดจริง ๆ เลยอะ 😔</div>
+    
+    <div class="reason" id="reasonText">
+      พูดอะไรแรงไปหน่อย / ลืมเรื่องสำคัญ<br>
+      หรืออะไรก็ตามที่ทำให้เหมียวเสียใจ<br><br>
+      ข้าไม่ได้ตั้งใจเลยจริง ๆ นะเหมียว...
+    </div>
+
+    <button class="btn" id="forgiveBtn" onclick="nextApology()">ง้อต่ออีกหน่อยนะเหมียว</button>
+    <div class="small-text">ถ้ายังไม่หายโกรธ บอกมาได้เลย จะง้อต่อจนเหมียวยิ้มได้อีกครั้ง 🐱</div>
+  </div>
+
+  <script>
+    const apologies = [
+      "ข้าขอโทษนะที่พูดอะไรไปไม่คิด",
+      "ข้าแค่อยากให้เองยิ้มบ้างไม่ใช่หน้าตึงใส่กัน",
+      "ไม่อยากให้เหมียวเสียใจเพราะข้าเลย",
+      "ขอโทษจากใจจริง ๆ เลยนะเหมียว",
+      "เหมียวสำคัญกับข้ามากนะ รู้มั้ย"
+    ];
+
+    let index = 0;
+
+    function nextApology() {
+      const text = document.getElementById("reasonText");
+      const btn = document.getElementById("forgiveBtn");
+
+      if (index < apologies.length) {
+        text.innerHTML = apologies[index];
+        index++;
+      } else {
+        text.innerHTML = "ขอบคุณที่ยอมให้อภัยนะเหมียว <br>ยิ้มให้ข้าทีสิเหมียว";
+        btn.innerText = "ยิ้มแล้วนะ";
+        btn.onclick = () => {
+          alert("ดีใจจังเลยที่เหมียวยิ้มแล้ว 🐱");
+        };
+      }
+    }
+  </script>
+
+</body>
+</html>
